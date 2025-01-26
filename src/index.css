@@ -10,21 +10,18 @@
     }
     li {
         @apply px-4;
-        @apply cursor-pointer
+        @apply cursor-pointer;
     }
 }
 
+section {
+    @apply flex items-center justify-center min-h-screen p-4;
+}
+
 .content-div {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 250px;
+    @apply bg-cover bg-center h-64 md:h-72 lg:h-80;
 }
 
 .content-div:hover {
-    background-image: linear-gradient(
-        to right,
-        #70a1ff,
-        #cce7ff,
-    )!important;
+    background-image: linear-gradient(to right, #70a1ff, #cce7ff) !important;
 }

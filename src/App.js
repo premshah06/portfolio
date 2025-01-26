@@ -1,5 +1,8 @@
-import About from "./components/About";
-import Contact from "./components/Contact";
+import Experience from "./components/About";
+//import About from "./components/About";
+import Certificates from "./components/Contact";
+//import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Navbar from "./components/NavBar";
 import Skills from "./components/Skills";
@@ -12,10 +15,11 @@ function App() {
     <div>
       <Navbar />
       <Home />
-      <About />
+      <Experience />
       <Skills />
       <Work />
-      <Contact />
+      <Certificates />
+      <Footer/>
     </div>
   );
 }

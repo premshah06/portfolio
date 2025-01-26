@@ -1,66 +1,70 @@
 import React from 'react';
-import { data } from "../data/data";
+import { data } from '../data/data';
 
 const Work = () => {
-  // Projects data
   const projects = data;
 
   return (
-    <div id='work' className='w-full md:h-screen text-gray-300 bg-[#0a192f]'>
-      <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full'>
-        <div className='pb-8'>
-          <p className='text-4xl font-bold inline border-b-4 text-gray-300 border-pink-600'>
+    <div
+      id="work"
+      className="w-full min-h-screen bg-gradient-to-br from-[#f7f3eb] via-[#e8e3db] to-[#d7d1c7] text-[#2e2d2b] md:pt-20"
+    >
+      <div className="max-w-[1200px] mx-auto px-6 py-12 flex flex-col justify-center w-full h-full">
+        {/* Header */}
+        <div className="pb-8 text-center">
+          <h2 className="text-4xl font-bold inline border-b-4 text-[#2e2d2b] border-[#4a5568]">
             Work
+          </h2>
+          <p className="py-6 text-lg text-[#4a4a4a]">
+            Explore some of my projects showcasing my skills and expertise.
           </p>
-          <p className='py-6'> Check out some of my work</p>
         </div>
 
-        {/* Grid container for projects */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {/* Individual project cards */}
+        {/* Projects Grid */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="shadow-lg shadow-[#040c16] group container rounded-md overflow-hidden relative"
+              className="group container shadow-lg rounded-lg overflow-hidden relative bg-[#ffffff] transition-transform duration-300 hover:scale-105"
             >
-              {/* Image */}
-              <div
-                className="bg-cover bg-center h-64"
-                style={{ backgroundImage: `url(${project.image})` }}
-              >
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white text-lg font-bold bg-gray-800 bg-opacity-50 rounded-lg px-4 py-2 m-2 hover:bg-blue-600 transition duration-300"
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white text-lg font-bold bg-gray-800 bg-opacity-50 rounded-lg px-4 py-2 m-2 hover:bg-pink-600 transition duration-300"
-                  >
-                    Source Code
-                  </a>
+              {/* Image Section */}
+              <div className="relative h-64">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex flex-col justify-center items-center h-full">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View source code for ${project.name}`}
+                      className="text-white text-lg font-semibold bg-[#4a5568] bg-opacity-90 rounded-lg px-4 py-2 m-2 hover:bg-[#355070] transition duration-300"
+                    >
+                      View Code
+                    </a>
+                  </div>
                 </div>
               </div>
-              
-              {/* Project details */}
-              <div className="p-4 bg-[#1a1e2e]">
-                <h3 className="text-xl font-bold text-white mb-2">{project.name}</h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap justify-center">
-                  {/* Skills used */}
+
+              {/* Details Section */}
+              <div className="p-6 flex flex-col justify-between">
+                <h3 className="text-xl font-bold text-[#2e2d2b] mb-3">{project.name}</h3>
+                <p className="text-[#4a4a4a] text-sm mb-4 line-clamp-3">
+                  {project.description}
+                </p>
+
+                {/* Skills Section */}
+                <div className="flex flex-wrap gap-2">
                   {project.skills.map((skill, idx) => (
-                    <div
+                    <span
                       key={idx}
-                      className="bg-white text-gray-700 font-bold text-sm rounded-full px-3 py-1 m-1"
+                      className="text-sm bg-[#4a5568] text-white font-medium rounded-full px-3 py-1 hover:opacity-80"
                     >
                       {skill}
-                    </div>
+                    </span>
                   ))}
                 </div>
               </div>
